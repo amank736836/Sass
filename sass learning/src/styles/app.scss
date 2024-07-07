@@ -1,0 +1,110 @@
+// @import "_colors2";
+// @import "_colors";
+
+@use 'colors2' as mycolor2;
+@use 'colors' as mycolor;
+
+// body {
+//   margin: 0;
+//   h1 {
+//     color: red;
+//   }
+//   a{
+//     text-decoration: none;
+//   }
+// }
+
+// $color1: rgb(155, 73, 73);
+// $color2: rgb(165, 12, 12);
+// $color3: rgb(238, 162, 162);
+// $large: 600px;
+
+// $colors: (rgb(155, 73, 73), rgb(165, 12, 12), rgb(238, 162, 162));
+
+body {
+    background-color: mycolor.$color1;
+  // background-color: $colors[color1];
+//   background-color: nth($colors, 1);
+  margin: 0;
+//   color: mycolor.$color2;
+  width: mycolor.$large;
+  h1 {
+    color: mycolor2.$color3;
+    font-size: 100px;
+    padding-left: 100px;
+  }
+}
+
+// body {
+//     background-color: $color1;
+//   // background-color: $colors[color1];
+// //   background-color: nth($colors, 1);
+//   margin: 0;
+//   color: $color2;
+//   width: $large;
+//   h1 {
+//     color: $color3;
+//     font-size: 200px;
+//     padding-left: 100px;
+//   }
+// }
+
+
+// .productCard{
+//     max-width: 600px;
+//     background-color: red;
+// }
+
+// .productCard > a{
+//     color: aqua;
+// }
+
+// .productCard > h2{
+//     color: rgb(162, 0, 255);
+// }
+
+// .productCard{
+//     max-width: 600px;
+//     background-color: $color1;
+//     a{
+//         color: $color2;
+//     }
+//     > h2{
+//         color: $color3;
+//     }
+// }
+
+%custom{
+    background-color: mycolor2.$color1;
+    padding: 1rem 2rem;
+    margin: 4rem;
+    border: node;
+    cursor: pointer;
+}
+
+@mixin customFunc($color:yellow){
+    background-color: $color;
+    padding: 1rem 2rem;
+    margin: 4rem;
+    border: node;
+    cursor: pointer;
+}
+
+.p1{
+    // @extend %custom;
+    // background-color: green;
+    @include customFunc();
+    &:hover{
+        background-color: mycolor.$color2;
+    }
+}
+
+$w:2rem;
+
+.p2{
+    @include customFunc(blue);
+    width: $w * 20;
+}
+.p3{
+    @include customFunc(green);
+}
